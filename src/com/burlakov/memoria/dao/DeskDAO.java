@@ -15,4 +15,6 @@ public interface DeskDAO {
     public List<DeskEntity> allDesks();
 
     public void deleteDesk(Integer id);
+
+    public List<DeskEntity> findDesksByUser(String email);
 }

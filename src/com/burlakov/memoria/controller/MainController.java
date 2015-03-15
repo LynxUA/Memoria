@@ -4,6 +4,7 @@ import com.burlakov.memoria.dao.DAOTemplate;
 import com.burlakov.memoria.dao.MemoriaUserDAO;
 import com.burlakov.memoria.dao.MemoriaUserDAOImpl;
 import com.burlakov.memoria.model.MemoriaUserEntity;
+import com.burlakov.memoria.system.Roles;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -37,6 +38,7 @@ public class MainController {
         session.getTransaction().commit();
         session.close();
         webRequest.setAttribute("email", user.getEmail(), RequestAttributes.SCOPE_GLOBAL_SESSION);
+        webRequest.setAttribute("role", user.getIdRole(), RequestAttributes.SCOPE_GLOBAL_SESSION);
         return "redirect:success";
     }
 
@@ -60,6 +62,15 @@ public class MainController {
     @RequestMapping("/")
     public String main(){
         return "index";
+    }
+
+    @RequestMapping("/panel")
+    public String adminPanel(WebRequest webRequest){
+        if((webRequest.getAttribute("role", RequestAttributes.SCOPE_GLOBAL_SESSION)).equals(Roles.ADMIN))
+            return "admin_panel";
+        else{
+            return "denied";
+        }
     }
 
     @RequestMapping(value = "/success", method = RequestMethod.GET)

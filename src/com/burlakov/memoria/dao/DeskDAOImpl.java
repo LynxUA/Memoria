@@ -42,4 +42,19 @@ public class DeskDAOImpl extends DAOTemplate implements DeskDAO{
 
         }
     }
+
+    @Override
+    public List<DeskEntity> findDesksByUser(String email) {
+        Query query = null;
+        try {
+            Session session = getSession();
+            query = session.createQuery("from DeskEntity desk " +
+                                        "where idDesk=(select idDesk" +
+                                                        " from DeskUsersEntity desk_users " +
+                    "                                     where desk.idDesk = desk_users.idDesk and desk_users.email=?)").setString(0,email);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return query.list();
+    }
 }

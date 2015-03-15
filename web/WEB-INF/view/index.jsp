@@ -1,15 +1,32 @@
-<%@ page import="com.burlakov.memoria.dao.DeskDAO" %>
-<%@ page import="com.burlakov.memoria.dao.DeskDAOImpl" %>
-<%@ page import="com.burlakov.memoria.model.DeskEntity" %>
-<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
+    <%@include file="../interface/includes.jsp"%>
+    <title>Main | Memoria</title>
+</head>
 <body>
-
-<h1>${message}</h1>
+<%@include file="../interface/header.jsp"%>
 <%
-    DeskDAO deskDao = new DeskDAOImpl();
-    List<DeskEntity> desks = deskDao.allDesks();
-    response.getWriter().println(desks.size());
+    int roleM = (Integer)(request.getSession().getAttribute("role"));
+    switch (roleM){
+        case Roles.GUEST:
 %>
+
+<%
+        break;
+        case Roles.USER:
+%>
+    <div id="scrolly">
+
+    </div>
+<%
+        case Roles.ADMIN:
+%>
+
+<%
+        break;
+    }
+%>
+<%@include file="../interface/footer.jsp"%>
 </body>
 </html>
