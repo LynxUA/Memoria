@@ -11,12 +11,14 @@ import java.math.BigDecimal;
 public class CategoryEntity {
     private BigDecimal idCatagory;
     private String name;
-    private String idDesk;
+    private BigDecimal idDesk;
     private CategoryEntity categoryByIdCatagory;
     private CategoryEntity categoryByIdCatagory_0;
 
     @Id
-    @Column(name = "ID_CATAGORY")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "G2")
+    @SequenceGenerator(name = "G2", sequenceName = "CATEGORY_SEQ")
+    @Column(name = "ID_CATAGORY", unique = true, nullable = false, precision = 22, scale = 0)
     public BigDecimal getIdCatagory() {
         return idCatagory;
     }
@@ -37,11 +39,11 @@ public class CategoryEntity {
 
     @Basic
     @Column(name = "ID_DESK")
-    public String getIdDesk() {
+    public BigDecimal getIdDesk() {
         return idDesk;
     }
 
-    public void setIdDesk(String idDesk) {
+    public void setIdDesk(BigDecimal idDesk) {
         this.idDesk = idDesk;
     }
 

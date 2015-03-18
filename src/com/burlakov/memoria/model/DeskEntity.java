@@ -15,7 +15,9 @@ public class DeskEntity {
     private byte[] background;
 
     @Id
-    @Column(name = "ID_DESK")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "G1")
+    @SequenceGenerator(name = "G1", sequenceName = "DESK_SEQ")
+    @Column(name = "ID_DESK", unique = true, nullable = false, precision = 22, scale = 0)
     public BigDecimal getIdDesk() {
         return idDesk;
     }

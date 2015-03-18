@@ -1,14 +1,12 @@
 package com.burlakov.memoria.dao;
 
 import com.burlakov.memoria.model.DeskEntity;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -19,7 +17,12 @@ public class DeskDAOImpl extends DAOTemplate implements DeskDAO{
 
     @Override
     public void createDesk(DeskEntity desk) {
-        getSession().save(desk);
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        session.save(desk);
+        session.flush();
+        session.close();
+        tx.commit();
     }
 
     @Override
@@ -35,12 +38,18 @@ public class DeskDAOImpl extends DAOTemplate implements DeskDAO{
     }
 
     @Override
-    public void deleteDesk(Integer id) {
-        DeskEntity contact = (DeskEntity) getSession().load(
+    public void deleteDesk(BigDecimal id) {
+        DeskEntity desk = (DeskEntity) getSession().load(
                 DeskEntity.class, id);
-        if (null != contact) {
-
+        if (null != desk) {
+            sessionFactory.getCurrentSession().delete(desk);
         }
+    }
+
+    @Override
+    public DeskEntity findDesk(BigDecimal id) {
+        return (DeskEntity) getSession().load(
+                DeskEntity.class, id);
     }
 
     @Override

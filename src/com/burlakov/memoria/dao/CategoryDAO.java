@@ -3,6 +3,7 @@ package com.burlakov.memoria.dao;
 import com.burlakov.memoria.model.CategoryEntity;
 import com.burlakov.memoria.model.DeskEntity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -10,11 +11,11 @@ import java.util.List;
  */
 public interface CategoryDAO {
 
-    public void createDesk(CategoryEntity desk);
+    public void createCategory(CategoryEntity category);
 
-    public List<CategoryEntity> allDesks();
+    public List<CategoryEntity> allCategories();
 
-    public void deleteDesk(Integer id);
+    public void deleteCategory(BigDecimal id);
 
-    public List<CategoryEntity> findCategotiesByDesk(Integer idDesk);
+    public List<CategoryEntity> findCategotiesByDesk(BigDecimal idDesk);
 }

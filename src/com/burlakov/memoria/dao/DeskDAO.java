@@ -3,6 +3,7 @@ package com.burlakov.memoria.dao;
 import com.burlakov.memoria.model.DeskEntity;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -14,7 +15,9 @@ public interface DeskDAO {
 
     public List<DeskEntity> allDesks();
 
-    public void deleteDesk(Integer id);
+    public void deleteDesk(BigDecimal id);
+
+    public DeskEntity findDesk(BigDecimal id);
 
     public List<DeskEntity> findDesksByUser(String email);
 }
