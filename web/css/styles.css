@@ -30,4 +30,10 @@
     background-color: #ededed;
     position: relative;
 }
+#members{
+    width: 250px;
+    height: 700px;
+    overflow-y: scroll;
+    display:inline-block;
+}
 
