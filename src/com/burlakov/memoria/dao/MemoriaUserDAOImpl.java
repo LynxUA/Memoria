@@ -27,6 +27,7 @@ public class MemoriaUserDAOImpl extends DAOTemplate implements MemoriaUserDAO{
         try {
             Session session = getSession();
             query = session.createQuery("from MemoriaUserEntity");
+            session.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -42,12 +43,21 @@ public class MemoriaUserDAOImpl extends DAOTemplate implements MemoriaUserDAO{
                     .setString(0, email)
                     .setString(1, password)
                     .list();
+            session.close();
         }catch(Exception e){
             e.printStackTrace();
         }
 
         return (MemoriaUserEntity)(users.get(0));
 
+    }
+
+    public String getNameByEmail(String email){
+        Session session = getSession();
+        String name = (String)(session.createQuery("select name from MemoriaUserEntity where email=?")
+                .setString(0, email).list().get(0));
+        session.close();
+        return name;
     }
 
 }

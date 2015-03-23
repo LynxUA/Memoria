@@ -39,10 +39,15 @@ public class DeskDAOImpl extends DAOTemplate implements DeskDAO{
 
     @Override
     public void deleteDesk(BigDecimal id) {
-        DeskEntity desk = (DeskEntity) getSession().load(
+        Session session = getSession();
+        DeskEntity desk = (DeskEntity) session.load(
                 DeskEntity.class, id);
         if (null != desk) {
-            sessionFactory.getCurrentSession().delete(desk);
+            Transaction tx = session.beginTransaction();
+            session.delete(desk);
+            session.flush();
+            session.close();
+            tx.commit();
         }
     }
 

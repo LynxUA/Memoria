@@ -19,7 +19,7 @@ public class LableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "G3")
-    @SequenceGenerator(name = "G3", sequenceName = "LABEL_SEQ")
+    @SequenceGenerator(name = "G3", sequenceName = "LABLE_SEQ")
     @Column(name = "ID_LABEL", unique = true, nullable = false, precision = 22, scale = 0)
     public BigDecimal getIdLabel() {
         return idLabel;

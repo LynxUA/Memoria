@@ -17,11 +17,11 @@ public class CommentaryEntity {
     private String email;
     private BigDecimal idAttributeRecievers;
     private BigDecimal idParentCommentary;
-    private CommentaryEntity commentaryByIdCommentary;
-    private CommentaryEntity commentaryByIdCommentary_0;
 
     @Id
-    @Column(name = "ID_COMMENTARY")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "G4")
+    @SequenceGenerator(name = "G4", sequenceName = "COMMENTARY_SEQ")
+    @Column(name = "ID_COMMENTARY", unique = true, nullable = false, precision = 22, scale = 0)
     public BigDecimal getIdCommentary() {
         return idCommentary;
     }
@@ -123,22 +123,4 @@ public class CommentaryEntity {
         return result;
     }
 
-    @OneToOne
-    @JoinColumn(name = "ID_COMMENTARY", referencedColumnName = "ID_COMMENTARY", nullable = false)
-    public CommentaryEntity getCommentaryByIdCommentary() {
-        return commentaryByIdCommentary;
-    }
-
-    public void setCommentaryByIdCommentary(CommentaryEntity commentaryByIdCommentary) {
-        this.commentaryByIdCommentary = commentaryByIdCommentary;
-    }
-
-    @OneToOne(mappedBy = "commentaryByIdCommentary")
-    public CommentaryEntity getCommentaryByIdCommentary_0() {
-        return commentaryByIdCommentary_0;
-    }
-
-    public void setCommentaryByIdCommentary_0(CommentaryEntity commentaryByIdCommentary_0) {
-        this.commentaryByIdCommentary_0 = commentaryByIdCommentary_0;
-    }
 }

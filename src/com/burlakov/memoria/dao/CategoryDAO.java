@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface CategoryDAO {
 
+    public CategoryEntity findCategory(BigDecimal categoryId);
+
     public void createCategory(CategoryEntity category);
 
     public List<CategoryEntity> allCategories();

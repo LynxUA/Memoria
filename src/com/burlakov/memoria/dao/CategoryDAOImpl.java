@@ -14,6 +14,12 @@ import java.util.List;
  */
 public class CategoryDAOImpl extends DAOTemplate implements CategoryDAO {
     @Override
+    public CategoryEntity findCategory(BigDecimal categoryId) {
+        return (CategoryEntity) getSession().load(
+                CategoryEntity.class, categoryId);
+    }
+
+    @Override
     public void createCategory(CategoryEntity desk) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
@@ -29,6 +35,7 @@ public class CategoryDAOImpl extends DAOTemplate implements CategoryDAO {
         try {
             Session session = getSession();
             query = session.createQuery("from CategoryEntity");
+            session.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -37,10 +44,15 @@ public class CategoryDAOImpl extends DAOTemplate implements CategoryDAO {
 
     @Override
     public void deleteCategory(BigDecimal id) {
-        CategoryEntity contact = (CategoryEntity) getSession().load(
+        Session session = getSession();
+        CategoryEntity categoryEntity = (CategoryEntity) session.load(
                 CategoryEntity.class, id);
-        if (null != contact) {
-
+        if (null != categoryEntity) {
+            Transaction tx = session.beginTransaction();
+            session.delete(categoryEntity);
+            session.flush();
+            session.close();
+            tx.commit();
         }
     }
 

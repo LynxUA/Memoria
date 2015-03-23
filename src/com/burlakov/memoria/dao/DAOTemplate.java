@@ -14,7 +14,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public abstract class DAOTemplate {
     protected static final SessionFactory sessionFactory;
     protected static final ServiceRegistry serviceRegistry;
-
+    private static Session session;
     static {
         try {
             Configuration configuration = new Configuration();
@@ -29,6 +29,7 @@ public abstract class DAOTemplate {
     public static Session getSession() throws HibernateException {
         Session session = sessionFactory.openSession();
         session.setFlushMode(FlushMode.COMMIT);
-        return sessionFactory.openSession();
+        return session;
     }
+
 }

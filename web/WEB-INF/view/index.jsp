@@ -28,15 +28,20 @@
 %>
 
 <div id="workspace">
-    <%
-        for (DeskEntity deskEntity : desks) {
-    %>
-    <a href="desk?idDesk=<%=deskEntity.getIdDesk()%>"><%=deskEntity.getName()%></a>
-    <br>
-    <%
-        }
-    %>
-    <a href="add_desk">Add new desk</a>
+    <div class="list-group">
+        <%
+            for (DeskEntity deskEntity : desks) {
+        %>
+        <div class="list-group-item">
+            <a href="desk?idDesk=<%=deskEntity.getIdDesk()%>"><%=deskEntity.getName()%></a><br>
+            <a href="delete_desk?idDesk=<%=deskEntity.getIdDesk()%>">Delete</a>
+        </div>
+        <br>
+        <%
+            }
+        %>
+        <a href="add_desk" class="list-group-item">Add new desk</a>
+    </div>
 </div>
 <%
 } else if (roleM.equals(Roles.ADMIN)) {

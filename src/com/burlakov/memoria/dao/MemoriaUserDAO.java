@@ -15,4 +15,6 @@ public interface MemoriaUserDAO {
     public List<MemoriaUserEntity> allUsers();
 
     public MemoriaUserEntity findUser(String email, String password);
+
+    public String getNameByEmail(String email);
 }

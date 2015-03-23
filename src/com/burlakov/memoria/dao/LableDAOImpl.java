@@ -13,6 +13,12 @@ import java.util.List;
  */
 public class LableDAOImpl extends  DAOTemplate implements LableDAO {
     @Override
+    public LableEntity findLable(BigDecimal id) {
+        return (LableEntity) getSession().load(
+                LableEntity.class, id);
+    }
+
+    @Override
     public void createLable(LableEntity lable) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
@@ -36,10 +42,15 @@ public class LableDAOImpl extends  DAOTemplate implements LableDAO {
 
     @Override
     public void deleteLable(BigDecimal id) {
-        LableEntity lable = (LableEntity) getSession().load(
+        Session session = getSession();
+        LableEntity lable = (LableEntity) session.load(
                 LableEntity.class, id);
         if (null != lable) {
-
+            Transaction tx = session.beginTransaction();
+            session.delete(lable);
+            session.flush();
+            session.close();
+            tx.commit();
         }
     }
 
