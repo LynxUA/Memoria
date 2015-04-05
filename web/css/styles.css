@@ -22,7 +22,6 @@
     height: 700px;
     overflow-y: scroll;
     display:inline-block;
-    margin-bottom: 60px;
 }
 
 #label{
@@ -58,6 +57,9 @@ body {
 }
 .container .text-muted {
   margin: 20px 0;
+}
+.labels {
+    position: relative;
 }
 
 
