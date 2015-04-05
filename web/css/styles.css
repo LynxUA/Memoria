@@ -22,6 +22,7 @@
     height: 700px;
     overflow-y: scroll;
     display:inline-block;
+    margin-bottom: 60px;
 }
 
 #label{
@@ -59,7 +60,4 @@ body {
   margin: 20px 0;
 }
 
-.labels {
-    margin-bottom: 60px;
-}
 
