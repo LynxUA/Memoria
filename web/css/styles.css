@@ -17,24 +17,22 @@
     white-space: nowrap
 }
 
-#category{
+#members{
+    
+}
+
+.category{
     width: 20%;
     height: 80%;
     overflow-y: scroll;
     display:inline-block;
 }
 
-#label{
+.label{
     width:100%;
     height:15%;
     background-color: #ededed;
     position: relative;
-}
-#members{
-    width: 20%;
-    height: 80%;
-    overflow-y: scroll;
-    display:inline-block;
 }
 
 body {
