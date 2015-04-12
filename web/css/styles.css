@@ -30,6 +30,7 @@
 .mem-label{
     width:100%;
     height:15%;
+    min-height:100px;
     background-color: #ededed;
     position: relative;
 }
@@ -56,7 +57,7 @@ body {
 }
 .mem-labels {
     width: 100%;
-    height: 80%;
+    height: 67%;
     overflow-y: scroll;
     display:inline-block;
 }
