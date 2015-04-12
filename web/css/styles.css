@@ -1,5 +1,5 @@
 .modal-footer {   border-top: 0px; }
-#workspace{
+#mem-workspace{
     width: 100%;
     height: 80%;
     overflow: auto;
@@ -8,7 +8,7 @@
     white-space: nowrap
 }
 
-#desk{
+#mem-desk{
     width: 100%;
     height: 80%;
     overflow: auto;
@@ -17,18 +17,18 @@
     white-space: nowrap
 }
 
-#members{
+#mem-members{
     
 }
 
-.category{
+.mem-category{
     width: 20%;
     height: 80%;
     overflow-y: scroll;
     display:inline-block;
 }
 
-.label{
+.mem-label{
     width:100%;
     height:15%;
     background-color: #ededed;
@@ -56,14 +56,14 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
-.labels {
+.mem-labels {
     overflow-y: scroll;
     display:inline-block;
 }
-.delete-category {
+.mem-delete-category {
     margin-top: 5px;
 }
-.input-label {
+.mem-input-label {
     margin-top: 5px;
 }
 
