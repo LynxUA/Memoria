@@ -18,35 +18,35 @@
 }
 
 #category{
-    height: 700px;
-    width: 350px;
+    height: 80%;
+    width: 20%;
     overflow-y: scroll;
     display:inline-block;
 }
 
 #label{
-    width:350px;
-    height:200px;
+    width:20%;
+    height:15%;
     background-color: #ededed;
     position: relative;
 }
 #members{
-    width: 250px;
-    height: 700px;
+    width: 20%;
+    height: 80%;
     overflow-y: scroll;
     display:inline-block;
 }
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 20%;
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 20%;
   background-color: #f5f5f5;
 }
 
@@ -61,6 +61,12 @@ body {
 .labels {
     overflow-y: scroll;
     display:inline-block;
+}
+.delete-category {
+    margin-top: 5px;
+}
+.input-label {
+    margin-top: 5px;
 }
 
 
