@@ -66,5 +66,8 @@ body {
 .mem-input-label {
     margin-top: 5px;
 }
+.list-group-item{
+    width: 100%;
+}
 
 
