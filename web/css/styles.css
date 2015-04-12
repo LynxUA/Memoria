@@ -19,7 +19,6 @@
 
 #category{
     width: 350px;
-    height: 700px;
     overflow-y: scroll;
     display:inline-block;
 }
