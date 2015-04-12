@@ -1,7 +1,7 @@
 .modal-footer {   border-top: 0px; }
 #workspace{
-    width: 1000px;
-    height: 600px;
+    width: 100%;
+    height: 80%;
     overflow: auto;
     overflow-y: hidden;
     margin: 0 auto;
@@ -9,8 +9,8 @@
 }
 
 #desk{
-    width: 1000px;
-    height: 600px;
+    width: 100%;
+    height: 80%;
     overflow: auto;
     overflow-y: hidden;
     margin: 0 auto;
@@ -25,13 +25,13 @@
 }
 
 #label{
-    width:20%;
+    width:100%;
     height:15%;
     background-color: #ededed;
     position: relative;
 }
 #members{
-    width: 20%;
+    width: 100%%;
     height: 80%;
     overflow-y: scroll;
     display:inline-block;
