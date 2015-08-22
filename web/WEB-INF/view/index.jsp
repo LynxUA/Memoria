@@ -22,12 +22,12 @@
     }
     if (roleM.equals(Roles.GUEST)) {
 %>
-
+    <img style="width: 50%; height: 50%" src="http://www.smart-shop.ua/images/bmw-announces-i-collection-accessories-for-the-new-era-photo-gallery_4.jpg"/>
 <%
-} else if (roleM.equals(Roles.USER)) {
+} else{
 %>
 
-<div id="workspace">
+<div id="mem-workspace">
     <div class="list-group">
         <%
             for (DeskEntity deskEntity : desks) {
@@ -43,10 +43,6 @@
         <a href="add_desk" class="list-group-item">Add new desk</a>
     </div>
 </div>
-<%
-} else if (roleM.equals(Roles.ADMIN)) {
-%>
-
 <%
     }
 %>

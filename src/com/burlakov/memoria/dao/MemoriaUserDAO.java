@@ -1,9 +1,11 @@
 package com.burlakov.memoria.dao;
 
+import com.burlakov.memoria.dao.exceptions.UserNotFoundException;
 import com.burlakov.memoria.model.DeskEntity;
 import com.burlakov.memoria.model.MemoriaUserEntity;
 import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -14,7 +16,19 @@ public interface MemoriaUserDAO {
 
     public List<MemoriaUserEntity> allUsers();
 
-    public MemoriaUserEntity findUser(String email, String password);
+    MemoriaUserEntity findUser(String email);
+
+    public MemoriaUserEntity findUser(String email, String password) throws UserNotFoundException, UserNotFoundException;
 
     public String getNameByEmail(String email);
+
+    public List<Object[]> findNumberOfCommentsForEveryUser();
+
+    public List<Object[]> findNumberOfFriendsForEveryUser();
+
+    public List<MemoriaUserEntity> findUsersNotFromBoard(BigDecimal boardId);
+
+    List<String> findTopUsersOn(BigDecimal boardId);
+
+    List<String> findTopCategoryOn(BigDecimal boardId);
 }

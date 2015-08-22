@@ -1,78 +1,64 @@
-table { page-break-inside:auto }
-tr    { page-break-inside:avoid; page-break-after:auto }
 .modal-footer {   border-top: 0px; }
-#mem-workspace{
-    width: 100%;
-    height: 80%;
+#workspace{
+    width: 1000px;
+    height: 600px;
     overflow: auto;
     overflow-y: hidden;
     margin: 0 auto;
     white-space: nowrap
 }
 
-#mem-desk{
-    width: 100%;
-    height: 80%;
-    padding-bottom:70px;
+#desk{
+    width: 1000px;
+    height: 600px;
     overflow: auto;
     overflow-y: hidden;
     margin: 0 auto;
     white-space: nowrap
 }
 
-#mem-members{
-    
-}
-
-.mem-category{
-    width: 20%;
-    height: 100%;
-    min-width:150px;
-    min-height: 440px;
+#category{
+    width: 350px;
+    height: 700px;
     overflow-y: scroll;
     display:inline-block;
 }
 
-.mem-label{
-    width:100%;
-    height:15%;
-    min-height:100px;
+#label{
+    width:350px;
+    height:200px;
     background-color: #ededed;
     position: relative;
 }
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 20%;
-}
-.footer {
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60 px;
-}
-
-.container {
-  width: auto;
-  max-width: 680px;
-  padding: 0 15px;
-}
-.container .text-muted {
-  margin: 20px 0;
-}
-.mem-labels {
-    width: 100%;
-    height: 67%;
+#members{
+    width: 250px;
+    height: 700px;
     overflow-y: scroll;
     display:inline-block;
 }
-.mem-delete-category {
-    margin-top: 5px;
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
-.mem-input-label {
-    margin-top: 5px;
-}
-.list-group-item{
+.footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
 }
 
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+.container .text-muted {
+    margin: 20px 0;
+}
 
+.labels {
+    margin-bottom: 60px;
+}

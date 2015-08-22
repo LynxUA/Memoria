@@ -18,6 +18,7 @@ public class MemoriaUserEntity {
     private BigDecimal poits;
     private String isOnline;
 
+
     @Id
     @Column(name = "EMAIL")
     public String getEmail() {

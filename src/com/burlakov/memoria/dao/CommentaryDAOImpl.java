@@ -61,4 +61,21 @@ public class CommentaryDAOImpl extends DAOTemplate implements CommentaryDAO {
         }
         return query.list();
     }
+
+    @Override
+    public void renameCommentary(BigDecimal commentaryId, String newText) {
+        Query query;
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            query = session.createQuery("update CommentaryEntity set value = ? where idCommentary = ?").setString(0, newText).setBigDecimal(1, commentaryId);
+            query.executeUpdate();
+        }catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
+        session.flush();
+        session.close();
+        tx.commit();
+    }
 }

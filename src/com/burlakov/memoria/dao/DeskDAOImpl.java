@@ -1,10 +1,8 @@
 package com.burlakov.memoria.dao;
 
 import com.burlakov.memoria.model.DeskEntity;
+import com.burlakov.memoria.model.MemoriaUserEntity;
 import org.hibernate.*;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -71,4 +69,20 @@ public class DeskDAOImpl extends DAOTemplate implements DeskDAO{
         }
         return query.list();
     }
+
+    @Override
+    public List<Object[]> findNumberOfUsersForEveryDesk() {
+        SQLQuery query = null;
+        try {
+            Session session = getSession();
+            query = session.createSQLQuery("select desk1.name, COUNT(user1.EMAIL) as users\n" +
+                    "from Desk desk1 join Desk_Users user1 on desk1.id_Desk = user1.id_Desk\n" +
+                    "group by desk1.name");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return query.list();
+    }
+
+
 }

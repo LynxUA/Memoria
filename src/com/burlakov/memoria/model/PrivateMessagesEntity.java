@@ -17,7 +17,9 @@ public class PrivateMessagesEntity {
     private String reciever;
 
     @Id
-    @Column(name = "ID_MESSAGE")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "M1")
+    @SequenceGenerator(name = "M1", sequenceName = "MESSAGE_SEQ")
+    @Column(name = "ID_MESSAGE", unique = true, nullable = false, precision = 22, scale = 0)
     public BigDecimal getIdMessage() {
         return idMessage;
     }
@@ -37,6 +39,7 @@ public class PrivateMessagesEntity {
     }
 
     @Basic
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MSG_DATE")
     public Timestamp getMsgDate() {
         return msgDate;

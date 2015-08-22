@@ -18,7 +18,7 @@
         <div class="panel panel-info" >
             <div class="panel-heading">
                 <div class="panel-title">Sign In</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                <%--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>--%>
             </div>
 
             <div style="padding-top:30px" class="panel-body" >
@@ -53,7 +53,7 @@
 
                         <div class="col-sm-12 controls">
                             <button id="btn-login" type="submit" class="btn btn-success">Login  </button>
-                            <button id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</button>
+                            <%--<button id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</button>--%>
 
                         </div>
                     </div>
@@ -127,13 +127,13 @@
                         </div>
                     </div>
 
-                    <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+                    <%--<div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">--%>
 
-                        <div class="col-md-offset-3 col-md-9">
-                            <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
-                        </div>
+                        <%--<div class="col-md-offset-3 col-md-9">--%>
+                            <%--<button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>--%>
+                        <%--</div>--%>
 
-                    </div>
+                    <%--</div>--%>
 
 
 

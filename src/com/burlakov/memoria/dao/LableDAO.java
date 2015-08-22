@@ -16,6 +16,8 @@ public interface LableDAO {
 
     public void createLable(LableEntity desk);
 
+    public void renameLable(BigDecimal id, String name);
+
     public List<LableEntity> allLables();
 
     public void deleteLable(BigDecimal id);

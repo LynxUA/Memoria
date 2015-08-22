@@ -18,4 +18,6 @@ public interface CommentaryDAO {
     public void deleteCommentary(BigDecimal id);
 
     public List<CommentaryEntity> findCommentariesByLabel(BigDecimal idLabel);
+
+    public void renameCommentary(BigDecimal commentaryId, String newText);
 }

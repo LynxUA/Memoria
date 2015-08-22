@@ -20,4 +20,6 @@ public interface DeskDAO {
     public DeskEntity findDesk(BigDecimal id);
 
     public List<DeskEntity> findDesksByUser(String email);
+
+    public List<Object[]> findNumberOfUsersForEveryDesk();
 }
